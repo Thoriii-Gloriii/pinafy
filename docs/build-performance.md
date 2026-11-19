@@ -46,7 +46,7 @@ Only checksum-verified GraalVM archives are cached by the native workflow. Its G
 
 ## macOS x64 packaging on Apple Silicon
 
-The x64 DMG job defaults to `blacksmith-6vcpu-macos-15`, the same Apple Silicon runner as the arm64 job. Gradle, Kotlin compilation and ProGuard use the runner's native JDK. The job passes `-Pmetrolist.desktop.arch=x86_64` to select x64 SQLite, FFmpeg, JNA, WebView and Skiko natives, and `-Pmetrolist.desktop.javaHome=<x64 JDK>` to select the packaging JDK. Compose's [application `javaHome`](https://kotlinlang.org/docs/multiplatform/compose-native-distribution.html#specifying-jdk-version) supplies jlink, jpackage and the bundled runtime, which run under Rosetta. The build validates the packaging JDK's architecture instead of requiring an x64 Gradle JVM.
+The x64 DMG job defaults to the GitHub-hosted macOS ARM64 runner used by the arm64 job. Gradle, Kotlin compilation and ProGuard use the runner's native JDK. The job passes `-Pmetrolist.desktop.arch=x86_64` to select x64 SQLite, FFmpeg, JNA, WebView and Skiko natives, and `-Pmetrolist.desktop.javaHome=<x64 JDK>` to select the packaging JDK. Compose's [application `javaHome`](https://kotlinlang.org/docs/multiplatform/compose-native-distribution.html#specifying-jdk-version) supplies jlink, jpackage and the bundled runtime, which run under Rosetta. The build validates the packaging JDK's architecture instead of requiring an x64 Gradle JVM.
 
 Compose filters Skiko natives by the daemon's architecture. For macOS packages built on another architecture, the task that trims release JARs selects Skiko's target libraries and checksums, preserves metadata and prefixes the JAR name with `metrolist-` so Compose packages those natives intact.
 

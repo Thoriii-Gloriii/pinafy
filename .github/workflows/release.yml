@@ -19,7 +19,7 @@ jobs:
       actions: read
       checks: read
     name: Validate stable release
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -222,7 +222,7 @@ jobs:
       - linux
       - macos
       - ios
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
       contents: write
@@ -351,7 +351,7 @@ jobs:
   distribution:
     name: Generate distribution recipes
     needs: [prepare, publish]
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
       contents: read
@@ -391,7 +391,7 @@ jobs:
   propose-distribution:
     name: Propose ${{ matrix.kind }} update
     needs: [prepare, distribution]
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
@@ -431,7 +431,7 @@ jobs:
   winget:
     name: Submit to WinGet
     needs: [prepare, publish]
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     # A WinGet hiccup must not fail a published release.
     continue-on-error: true
@@ -453,7 +453,7 @@ jobs:
   flatpark:
     name: Notify flatpark
     needs: publish
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     continue-on-error: true
     permissions: {}
@@ -467,7 +467,7 @@ jobs:
   homebrew:
     name: Update the Homebrew tap
     needs: publish
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     continue-on-error: true
     permissions: {}
@@ -508,7 +508,7 @@ jobs:
       - ios
       - publish
       - finalize-sentry
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       actions: write

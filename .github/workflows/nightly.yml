@@ -21,7 +21,7 @@ jobs:
   version:
     name: Resolve nightly version
     if: github.ref == 'refs/heads/main'
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
       value: ${{ steps.version.outputs.value }}
@@ -93,7 +93,7 @@ jobs:
   notes:
     name: Write nightly notes
     needs: version
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
@@ -180,7 +180,7 @@ jobs:
   publish:
     name: Publish nightly prerelease
     needs: [version, notes, android, linux, windows]
-    runs-on: blacksmith-2vcpu-ubuntu-2604
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write

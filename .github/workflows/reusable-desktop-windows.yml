@@ -57,11 +57,11 @@ jobs:
       matrix:
         include:
           - arch: x64
-            runner: blacksmith-4vcpu-windows-2025
+            runner: windows-latest
             rid: win-x64
             zip: Metrolist-Desktop-Windows.zip
             machine: '8664'
-          # Blacksmith has no Windows ARM64 runners; GitHub's native one avoids cross-building the runtime and launcher.
+          # GitHub's native Windows ARM64 runner avoids cross-building the runtime and launcher.
           - arch: arm64
             runner: ${{ vars.WINDOWS_ARM64_RUNNER || 'windows-11-arm' }}
             rid: win-arm64

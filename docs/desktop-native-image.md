@@ -60,7 +60,7 @@ All files under `Contents/MacOS` must be ARM64 Mach-O code. Packaging adds `@exe
 
 ### CI, metadata and caches
 
-Run `build-desktop-native.yml` manually with one target. Linux x64 and Windows x64 use Blacksmith 8-vCPU runners for builder memory, rather than adding CPUs to existing JVM jobs. Linux ARM64 also uses 8; macOS ARM64 uses the existing 6-vCPU Apple Silicon tier. All four targets run without repository enable variables. The reusable workflow also accepts push callers and rejects pull requests and schedules. Each build runs on its target OS and architecture. The [nightly workflow](releasing.md#nightly-prereleases) builds Linux x64 and Windows x64 after eligible main pushes. Check actual hosted time before adding more push targets or scheduling builds.
+Run `build-desktop-native.yml` manually with one target. Linux, Windows and macOS native builds use GitHub-hosted runners for their target platforms and architectures. All four targets run without repository enable variables. The reusable workflow also accepts push callers and rejects pull requests and schedules. Each build runs on its target OS and architecture. The [nightly workflow](releasing.md#nightly-prereleases) builds Linux x64 and Windows x64 after eligible main pushes. Check actual hosted time before adding more push targets or scheduling builds.
 
 Stable releases keep JVM desktop packages. The rolling nightly prerelease includes the native Linux x64 AppImage and Windows x64 portable ZIP. Native packages and their separate evidence archives remain available as workflow artifacts of the calling run.
 

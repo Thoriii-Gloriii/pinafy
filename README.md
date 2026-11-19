@@ -14,7 +14,6 @@
 <br>
 
 <div style="display: flex; gap: 0.5rem; align-items: center;">
-  <a href="https://www.blacksmith.sh"><img src="assets/blacksmith-powered.svg" alt="CI powered by Blacksmith" height="32" /></a>
   <a href="https://dsc.gg/metrolist"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" height="32" /></a>
   <a href="https://t.me/metrolistapp"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" height="32" /></a>
 </div>
@@ -218,10 +217,6 @@ Metrolist uses these projects and services.
     <tr>
       <td align="center"><a href="https://github.com/MetrolistGroup/metroserver">metroserver</a></td>
       <td>Listen Together real-time synchronization backend</td>
-    </tr>
-    <tr>
-      <td align="center"><a href="https://www.blacksmith.sh">Blacksmith</a></td>
-      <td>GitHub Actions runners for CI</td>
     </tr>
   </tbody>
 </table>
